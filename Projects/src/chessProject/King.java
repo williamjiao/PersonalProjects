@@ -6,5 +6,5 @@ public class King extends Piece
 	{
 		super(x, y, team);
 	}
-	public 
+	public boolean validateMove()
 }
