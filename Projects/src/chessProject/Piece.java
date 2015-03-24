@@ -32,5 +32,27 @@ public abstract class Piece
 		int finalY = y + move.delY; 
 		return !(finalX > 7 || finalX < 0 || finalY < 0 || finalY > 7);
 	}
+	public static String getName(Piece piece)
+	{
+		String name = "";
+		if(piece.getTeam())
+			name += "w";
+		else
+			name += "b";
+		
+		if(piece instanceof Bishop)
+			name += "b";
+		if(piece instanceof Rook)
+			name += "r";
+		if(piece instanceof Pawn)
+			name += "p";
+		if(piece instanceof King)
+			name += "k";
+		if(piece instanceof Queen)
+			name += "q";
+		else
+			name += "k";
+		return name;
+	}
 	
 }

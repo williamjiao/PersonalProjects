@@ -8,7 +8,9 @@ public class Bishop extends Piece
 	}
 	public boolean validateMove(Move move, Chessboard board)
 	{
-		if(!(super.moveInBounds(move) && Math.abs(move.delX) == Math.abs(move.delY)))
+		if(!(super.moveInBounds(move) && Math.abs(move.delX) == Math.abs(move.delY)) || (move.delX == 0 && move.delY == 0))
+			return false;
+		if(board.getOccupant(super.getX() + move.delX, super.getY() + move.delY).getTeam() == super.getTeam())
 			return false;
 		if(Math.abs(move.delX) == 1)
 			return true;

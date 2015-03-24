@@ -10,7 +10,8 @@ public class Chessboard
 	
 	public void startGame()
 	{
-		
+		board[0][0] = new Rook(0,0,true);
+
 	}
 	public Piece getOccupant(int x, int y)
 	{
