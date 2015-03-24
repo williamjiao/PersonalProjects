@@ -42,13 +42,13 @@ public abstract class Piece
 		
 		if(piece instanceof Bishop)
 			name += "b";
-		if(piece instanceof Rook)
+		else if(piece instanceof Rook)
 			name += "r";
-		if(piece instanceof Pawn)
+		else if(piece instanceof Pawn)
 			name += "p";
-		if(piece instanceof King)
+		else if(piece instanceof King)
 			name += "k";
-		if(piece instanceof Queen)
+		else if(piece instanceof Queen)
 			name += "q";
 		else
 			name += "k";
