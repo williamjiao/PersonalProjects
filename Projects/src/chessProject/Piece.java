@@ -30,6 +30,7 @@ public abstract class Piece
 	{
 		int finalX = x + move.delX;
 		int finalY = y + move.delY; 
+		System.out.println(finalX + "\t" + finalY);
 		return !(finalX > 7 || finalX < 0 || finalY < 0 || finalY > 7);
 	}
 	public static String getName(Piece piece)

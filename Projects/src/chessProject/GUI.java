@@ -13,19 +13,19 @@ public class GUI implements ActionListener
 	private int activeRow;
 	private int activeCol;
 	private Chessboard board;
-	boolean canReturn;
+	private JFrame frame;
 	public GUI(Chessboard board)
 	{
 		guiBoard = new JButton[8][8];
 		activeRow = -1;
 		activeCol = -1;
 		this.board = board; 
+		frame = new JFrame("Chessboard Test");
 	}
 	public  void drawBoard()
 	{
-		JFrame jf = new JFrame("Chessboard Test");
-		jf.setLayout(new GridLayout(8,8));
-		jf.setSize(600,600);		
+		frame.setLayout(new GridLayout(8,8));
+		frame.setSize(600,600);		
 		for(int i = 0 ; i < 8; i++)
 		{
 			for(int j = 0; j < 8; j++)
@@ -35,26 +35,40 @@ public class GUI implements ActionListener
 				if(board.getOccupant(i,j) != null)
 					guiBoard[i][j].setText(Piece.getName(board.getOccupant(i,j)));
 				guiBoard[i][j].addActionListener(this);
-				jf.add(guiBoard[i][j]);
+				frame.add(guiBoard[i][j]);
 
 			}
 		}
-		jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-		jf.setVisible(true);
+		frame.setVisible(true);
+	}
+	public void updateBoard()
+	{
+		for(int i = 0 ; i < 8; i++)
+		{
+			for(int j = 0; j < 8; j++)
+			{
+				
+				if(board.getOccupant(i,j) != null)
+					guiBoard[i][j].setText(Piece.getName(board.getOccupant(i,j)));
+
+			}
+		}
 	}
 	public int[] detectActive()
 	{
-		if(canReturn)
+		int[] returnArray = new int[2];
+		while(activeRow < 0 || activeCol < 0)
 		{
-			int[] returnArray = new int[2];
-			returnArray[0] = activeRow;
-			returnArray[1] = activeCol;
-			activeRow = -1;
-			activeCol = -1;
-			System.out.println(activeCol);
+			
 
 		}
+		returnArray[0] = activeRow;
+		returnArray[1] = activeCol;
+
+		activeRow = -1;
+		activeCol = -1;
 		
 		return returnArray;
 	}
@@ -66,9 +80,7 @@ public class GUI implements ActionListener
 				{
 					activeRow = row;
 					activeCol = col;
-					canReturn = true;
 				}
-		System.out.println("Action test");
 	}
 	
 }

@@ -24,6 +24,7 @@ public class Pawn extends Piece
 				return board.getOccupant(super.getX() - 1,  super.getY() + 1) != null;
 				
 		}
+		System.out.println("True");
 		return false;
 	}
 }

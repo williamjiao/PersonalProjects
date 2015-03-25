@@ -56,9 +56,9 @@ public class Chessboard
 		
 		Piece active = move.piece;
 		Piece captured = getOccupant(active.getX() + move.delX, active.getY() + move.delY);
-		board[active.getX() + move.delX][active.getY() + move.delY] = null;
+		board[active.getX()][active.getY()] = null;
 		board[active.getX() + move.delX][active.getY() + move.delY] = active;
-		
+		System.out.println("move test");
 		return captured;	
 	}
 }
