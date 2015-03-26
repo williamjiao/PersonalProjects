@@ -31,11 +31,11 @@ public class GUI implements ActionListener
 			for(int j = 0; j < 8; j++)
 			{
 				
-				guiBoard[i][j] = new JButton();
+				guiBoard[7-i][j] = new JButton();
 				if(board.getOccupant(i,j) != null)
-					guiBoard[i][j].setText(Piece.getName(board.getOccupant(i,j)));
-				guiBoard[i][j].addActionListener(this);
-				frame.add(guiBoard[i][j]);
+					guiBoard[7-i][j].setText(Piece.getName(board.getOccupant(i,j)));
+				guiBoard[7-i][j].addActionListener(this);
+				frame.add(guiBoard[7-i][j]);
 
 			}
 		}
@@ -51,7 +51,7 @@ public class GUI implements ActionListener
 			{
 				
 				if(board.getOccupant(i,j) != null)
-					guiBoard[i][j].setText(Piece.getName(board.getOccupant(i,j)));
+					guiBoard[7-i][j].setText(Piece.getName(board.getOccupant(i,j)));
 
 			}
 		}

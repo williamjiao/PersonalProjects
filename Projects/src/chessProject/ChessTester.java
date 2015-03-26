@@ -8,7 +8,7 @@ public class ChessTester
 		board.startGame();
 		GUI myGUI = new GUI(board);
 		myGUI.drawBoard();
-
+		System.out.println(Piece.getName(board.getOccupant(7,0)));
 		while(true)
 		{
 
