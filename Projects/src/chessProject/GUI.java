@@ -31,11 +31,11 @@ public class GUI implements ActionListener
 			for(int j = 0; j < 8; j++)
 			{
 				
-				guiBoard[7-i][j] = new JButton();
+				guiBoard[i][j] = new JButton();
 				if(board.getOccupant(i,j) != null)
-					guiBoard[7-i][j].setText(Piece.getName(board.getOccupant(i,j)));
-				guiBoard[7-i][j].addActionListener(this);
-				frame.add(guiBoard[7-i][j]);
+					guiBoard[i][j].setText(Piece.getName(board.getOccupant(i,j)));
+				guiBoard[i][j].addActionListener(this);
+				frame.add(guiBoard[i][j]);
 
 			}
 		}
@@ -51,25 +51,17 @@ public class GUI implements ActionListener
 			{
 				
 				if(board.getOccupant(i,j) != null)
-					guiBoard[7-i][j].setText(Piece.getName(board.getOccupant(i,j)));
+					guiBoard[i][j].setText(Piece.getName(board.getOccupant(i,j)));
 
 			}
 		}
 	}
 	public int[] detectActive()
 	{
-		int[] returnArray = new int[2];
-		while(activeRow < 0 || activeCol < 0)
-		{
-			
-
-		}
+		int[] returnArray = new int[2];	
 		returnArray[0] = activeRow;
 		returnArray[1] = activeCol;
-
-		activeRow = -1;
-		activeCol = -1;
-		
+		System.out.println(activeRow);
 		return returnArray;
 	}
 	public void actionPerformed(ActionEvent e)

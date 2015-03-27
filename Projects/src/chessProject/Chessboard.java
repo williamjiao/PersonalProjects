@@ -45,7 +45,7 @@ public class Chessboard
 		board[1][4] = new Pawn(6,4,false);
 		board[1][5] = new Pawn(6,5,false);
 		board[1][6] = new Pawn(6,6,false);
-		board[1][7] = new Pawn(6,7,false);
+		board[1][7] = new Pawn(6,7,false);	
 	}
 	public Piece getOccupant(int x, int y)
 	{
