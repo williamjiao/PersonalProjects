@@ -8,7 +8,6 @@ public class ChessTester
 		board.startGame();
 		GUI myGUI = new GUI(board);
 		myGUI.drawBoard();
-		System.out.println(Piece.getName(board.getOccupant(7,0)));
 		while(true)
 		{
 			int[] activeLoc = {-1,-1};
@@ -23,8 +22,7 @@ public class ChessTester
 			while(destinationLoc[0] < 0)
 				destinationLoc = myGUI.detectActive();
 			Move move = new Move(destinationLoc[1] - activeLoc[1], destinationLoc[0] - activeLoc[0], activePiece);
-			System.out.println(move.delX);
-			System.out.println(move.delY);
+
 			if(activePiece != null && activePiece.validateMove(move, board))
 			{
 				System.out.println(Piece.getName(activePiece));

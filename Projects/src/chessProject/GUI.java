@@ -10,15 +10,13 @@ import javax.swing.WindowConstants;
 public class GUI implements ActionListener
 {
 	private JButton[][] guiBoard;
-	private int activeRow;
-	private int activeCol;
+	private Piece activePiece;
+	private boolean activePieceSelected;
 	private Chessboard board;
 	private JFrame frame;
 	public GUI(Chessboard board)
 	{
 		guiBoard = new JButton[8][8];
-		activeRow = -1;
-		activeCol = -1;
 		this.board = board; 
 		frame = new JFrame("Chessboard Test");
 	}
@@ -56,23 +54,25 @@ public class GUI implements ActionListener
 			}
 		}
 	}
-	public int[] detectActive()
-	{
-		int[] returnArray = new int[2];	
-		returnArray[0] = activeRow;
-		returnArray[1] = activeCol;
-		System.out.println(activeRow);
-		return returnArray;
-	}
+	
 	public void actionPerformed(ActionEvent e)
 	{
+		Piece sourcePiece = null;
 		for(int row = 0; row < guiBoard.length; row++)
 			for(int col = 0; col < guiBoard[0].length; col++)
 				if(guiBoard[row][col] == e.getSource())
 				{
-					activeRow = row;
-					activeCol = col;
+					sourcePiece = board.getOccupant(row,  col);
 				}
+		if(!activePieceSelected)
+		{
+			if(activePiece != null)
+			{
+				activePiece = sourcePiece;
+
+			}
+				
+		}
 	}
 	
 }
