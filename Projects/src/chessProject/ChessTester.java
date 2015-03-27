@@ -29,7 +29,7 @@ public class ChessTester
 			{
 				System.out.println(Piece.getName(activePiece));
 			}
-			
+			Test
 		}
 		
 	}
