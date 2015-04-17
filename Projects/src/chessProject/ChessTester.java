@@ -12,8 +12,9 @@ public class ChessTester
 		{
 			int[] activeLoc = {-1,-1};
 			while(activeLoc[0] < 0)
-				
+			{
 				activeLoc = myGUI.detectActive();
+			}
 			Piece activePiece = null;
 			while(activePiece == null)
 				activePiece = board.getOccupant(activeLoc[0], activeLoc[1]);

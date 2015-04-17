@@ -11,7 +11,6 @@ public class GUI implements ActionListener
 {
 	private JButton[][] guiBoard;
 	private Piece activePiece;
-	private boolean activePieceSelected;
 	private Chessboard board;
 	private JFrame frame;
 	public GUI(Chessboard board)
@@ -63,16 +62,28 @@ public class GUI implements ActionListener
 				if(guiBoard[row][col] == e.getSource())
 				{
 					sourcePiece = board.getOccupant(row,  col);
+					break;
 				}
-		if(!activePieceSelected)
+		if(activePiece == null)
 		{
-			if(activePiece != null)
-			{
-				activePiece = sourcePiece;
-
-			}
-				
+			activePiece = sourcePiece;
+			System.out.println(activePiece);
 		}
+			
+	}
+	
+	public int[] detectActive()
+	{
+		
+		if(activePiece != null)
+		{
+			System.out.println("Test2");
+			int[] returnArray = new int[]{activePiece.getX(), activePiece.getY()};
+			activePiece = null;
+			return returnArray;
+		}
+		return new int[]{-1,-1};
+	
 	}
 	
 }
